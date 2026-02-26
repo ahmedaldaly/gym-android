@@ -43,14 +43,14 @@ const styles = StyleSheet.create({
     },
 
     /* 🔥 الزر الجديد */
-    arrowWrapper: {
-        position: 'absolute',
-        right: 20,
-        bottom: 45,
+   arrowWrapper: {
         width: 90,
         height: 90,
         alignItems: 'center',
         justifyContent: 'center',
+        alignSelf: 'flex-end',
+        marginRight: 20,
+        marginBottom: 20,
     },
 
     arrowContainer: {
