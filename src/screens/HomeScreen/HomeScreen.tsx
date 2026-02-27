@@ -15,7 +15,7 @@ const HomeScreen = () => {
     const windowWidth = Dimensions.get('window').width;
     const { user, loading: authLoading, _hasHydrated } = useAuthStore();
     const { data: planData, isLoading: planLoading } = useGetUserPlan();
-
+    console.log(`profile ${user?.email}`)
     // لو لسه بنحمل البيانات أو الاستور لسه مكملش الهيدريشن، نعرض لودينج
     if (!_hasHydrated || ((authLoading || planLoading) && !user)) {
         return (
@@ -39,7 +39,7 @@ const HomeScreen = () => {
                 <Header name={user?.firstName || 'User'} />
                 <Subsicription data={planData} />
                 <Actions />
-                <ProgressSection />
+                <ProgressSection data={user} />
             </ScrollView>
         </SafeAreaView>
     )

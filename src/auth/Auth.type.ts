@@ -27,6 +27,7 @@ export type LogInResponseType = {
     }
 }
 export type ProfileResponseType = {
+    [x: string]: string;
     message: string;
     user: {
         id: string;
