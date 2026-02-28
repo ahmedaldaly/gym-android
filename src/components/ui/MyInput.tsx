@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, DimensionValue } from 'react-native';
 import { TextInput } from 'react-native-paper';
 
 type PropsType = {
@@ -8,6 +8,7 @@ type PropsType = {
   value: string;
   onChangeText: (text: string) => void;
   secureTextEntry?: boolean;
+  width?: DimensionValue; // ✅ الجديد
 };
 
 const MyInput = ({
@@ -16,27 +17,45 @@ const MyInput = ({
   value,
   onChangeText,
   secureTextEntry = false,
+  width = '100%', // ✅ default width
 }: PropsType) => {
-  const [hidePassword, setHidePassword] = React.useState(secureTextEntry);
+
+  const [hidePassword, setHidePassword] =
+    React.useState(secureTextEntry);
 
   return (
-    <View style={styles.container}>
-      {icon && <View style={styles.iconContainer}>{icon}</View>}
+    <View style={[styles.container, { width }]}>
+      {icon && (
+        <View style={styles.iconContainer}>
+          {icon}
+        </View>
+      )}
+
       <TextInput
         mode="flat"
         label={label}
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={hidePassword}
-        style={icon ? [styles.input, styles.inputWithIcon] : styles.input}
+        style={
+          icon
+            ? [styles.input, styles.inputWithIcon]
+            : styles.input
+        }
         contentStyle={styles.content}
         underlineColor="transparent"
         activeUnderlineColor="transparent"
         right={
           secureTextEntry ? (
             <TextInput.Icon
-              icon={hidePassword ? 'eye-off-outline' : 'eye-outline'}
-              onPress={() => setHidePassword(!hidePassword)}
+              icon={
+                hidePassword
+                  ? 'eye-off-outline'
+                  : 'eye-outline'
+              }
+              onPress={() =>
+                setHidePassword(!hidePassword)
+              }
               color="#1E3A8A"
             />
           ) : null
@@ -51,7 +70,6 @@ export default MyInput;
 const styles = StyleSheet.create({
   container: {
     position: 'relative',
-    width: '100%',
   },
 
   input: {

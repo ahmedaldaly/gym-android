@@ -14,9 +14,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Svg, { Path } from 'react-native-svg';
 import HomeStack from './HomeStack';
-import Shop from '../screens/Shop/Shop';
 import SettingPage from '../screens/Setting/SettingPage';
-
+import ShopStack from '../navigation/ShopStack'
 type RootTabParamList = {
   Market: undefined;
   Home: undefined;
@@ -168,7 +167,7 @@ export default function Tabs() {
       screenOptions={{ headerShown: false }}
       tabBar={(props) => <CustomTabBar {...props} />}
     >
-      <Tab.Screen name="Market" component={Shop} />
+      <Tab.Screen name="Market" component={ShopStack} />
       <Tab.Screen name="Home" component={HomeStack} />
       <Tab.Screen name="Settings" component={SettingPage} />
     </Tab.Navigator>
