@@ -48,7 +48,15 @@ const navigation = useNavigation<NativeStackNavigationProp<ShopStackParamList>>(
   const bannerProduct = filteredProducts[0] || null;
   const renderHeader = () => (
     <View>
-      <Text style={styles.title}>Market</Text>
+      <View style={styles.headerContainer}>
+        <Text style={styles.title}>Market</Text>
+        <TouchableOpacity 
+          style={styles.cartButton}
+          onPress={() => navigation.navigate('myCard')}
+        >
+          <AntDesign name="shoppingcart" color="#F472B6" size={24} />
+        </TouchableOpacity>
+      </View>
 
       {/* search */}
       <View style={styles.searchContainer}>
@@ -98,18 +106,42 @@ const navigation = useNavigation<NativeStackNavigationProp<ShopStackParamList>>(
       />
 
       {/* Advertisement Banner (dynamic) */}
-      {bannerProduct && (
-        <TouchableOpacity style={styles.bannerContainer}>
-          <View style={styles.bannerContent}>
-            <Text style={styles.bannerTitle}>{bannerProduct.name}</Text>
-            <Text style={styles.bannerSubtitle}>${bannerProduct.price}</Text>
-          </View>
-          <Image
-            source={{ uri: bannerProduct.image }}
-            style={styles.bannerImage}
-          />
-        </TouchableOpacity>
-      )}
+     {/* Advertisement Banner (dynamic) */}
+{bannerProduct && (
+  <TouchableOpacity style={styles.bannerContainer}>
+    
+    {/* Discount Badge */}
+    <View style={styles.discountBadge}>
+      <Text style={styles.discountText}>-30%</Text>
+    </View>
+
+    <View style={styles.bannerContent}>
+      <Text style={styles.offerText}> Limited Offer</Text>
+
+      <Text style={styles.bannerTitle}>
+        {bannerProduct.name}
+      </Text>
+
+      {/* Prices */}
+      <View style={styles.priceRow}>
+        
+
+        <Text style={styles.newPrice}>
+          ${bannerProduct.price}
+        </Text>
+      </View>
+
+      <Text style={styles.saveText}>
+        Save big on this product today!
+      </Text>
+    </View>
+
+    <Image
+      source={{ uri: bannerProduct.image }}
+      style={styles.bannerImage}
+    />
+  </TouchableOpacity>
+)}
 
       <Text style={styles.sectionTitle}>Products</Text>
     </View>

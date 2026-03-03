@@ -31,6 +31,7 @@ export const useCreateOrder = () => {
         },
         onSuccess: () => {
             queryClient.invalidateQueries({queryKey: ['orders']})
+            queryClient.invalidateQueries({queryKey: ['my-orders']})
         }
     })
 }

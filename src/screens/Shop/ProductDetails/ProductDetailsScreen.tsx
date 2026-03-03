@@ -61,8 +61,8 @@ export default function ProductDetailsScreen() {
           <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
             <Ionicons name="arrow-back" size={24} color="#13042D" />
           </TouchableOpacity>
+          <Text style={styles.title}>Product Details</Text>
           <TouchableOpacity style={styles.heartButton}>
-            <AntDesign name="hearto" size={22} color="#13042D" />
           </TouchableOpacity>
         </View>
 
@@ -140,12 +140,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  title:{
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#13042D',
+    textAlign: 'center',
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     paddingVertical: 15,
-    position: 'absolute',
     top: 40, // Increased top to clear safe area
     left: 0,
     right: 0,
@@ -153,23 +158,9 @@ const styles = StyleSheet.create({
   },
   backButton: {
     padding: 10,
-    backgroundColor: 'rgba(255,255,255,0.9)',
     borderRadius: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
   },
-  heartButton: {
-    padding: 10,
-    backgroundColor: 'rgba(255,255,255,0.9)',
-    borderRadius: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+  heartButton: { 
   },
   imageContainer: {
     height: 380,

@@ -9,9 +9,25 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 16,
     color: '#13042D',
-    textAlign: 'center',
+  },
+
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+
+  cartButton: {
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 15,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
   },
 
   searchContainer: {
@@ -163,4 +179,46 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  discountBadge: {
+  position: 'absolute',
+  top: 12,
+  right: 12,
+  backgroundColor: '#F472B6',
+  paddingHorizontal: 10,
+  paddingVertical: 4,
+  borderRadius: 10,
+  zIndex: 20,
+},
+
+discountText: {
+  color: '#fff',
+  fontWeight: 'bold',
+  fontSize: 12,
+},
+
+offerText: {
+  color: '#F472B6',
+  fontSize: 14,
+  fontWeight: '700',
+  marginBottom: 4,
+},
+
+priceRow: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  gap: 10,
+  marginTop: 6,
+},
+
+newPrice: {
+  color: '#fff',
+  fontSize: 20,
+  fontWeight: 'bold',
+},
+
+saveText: {
+  color: '#E5E7EB',
+  fontSize: 12,
+  marginTop: 4,
+},
 });
