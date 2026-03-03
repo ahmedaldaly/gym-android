@@ -61,21 +61,14 @@ export default function ProfileScreen() {
           </ProfileField>
 
           <ProfileField label="Phone">
-            <View style={styles.phoneInputContainer}>
-              <View style={styles.flagContainer}>
-                <Text style={styles.flag}>🇪🇬</Text>
-              </View>
-              <View style={styles.phoneInputWrapper}>
-                <MyInput
-                  label=""
-                  value={phone.startsWith('+20') ? phone : `+20 ${phone}`}
-                  onChangeText={() => { }}
-                />
-              </View>
-            </View>
+            <MyInput
+              label=""
+              icon={<Text style={{ fontSize: 20 }}>🇪🇬</Text>}
+              value={phone.startsWith('+20') ? phone : `+20 ${phone}`}
+              onChangeText={() => { }}
+            />
           </ProfileField>
 
-          
 
           <ProfileField label="Date of birth">
             <ProfileDropdown
@@ -116,7 +109,7 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#FAFAFF', // Slightly off-white/purple background per design
+    backgroundColor: '#FAFAFF',
   },
   header: {
     paddingHorizontal: 16,
@@ -130,24 +123,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingTop: 10,
     paddingBottom: 20,
-  },
-  phoneInputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '100%',
-  },
-  flagContainer: {
-    position: 'absolute',
-    left: 16,
-    zIndex: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  flag: {
-    fontSize: 20,
-  },
-  phoneInputWrapper: {
-    flex: 1,
   },
   forgotPassword: {
     alignSelf: 'flex-end',
