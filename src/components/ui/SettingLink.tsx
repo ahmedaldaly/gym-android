@@ -5,22 +5,32 @@ import { useNavigation } from '@react-navigation/native';
 
 type SettingLinkProps = {
   title: string;
-  screen: string;
+  screen?: string;
   icon?: string;
+  onPress?: () => void;
 };
 
 export default function SettingLink({
   title,
   screen,
   icon = 'arrow-forward-ios',
+  onPress,
 }: SettingLinkProps) {
 
   const navigation = useNavigation<any>();
 
+  const handlePress = () => {
+    if (onPress) {
+      onPress();
+    } else if (screen) {
+      navigation.navigate(screen);
+    }
+  };
+
   return (
     <TouchableOpacity
       style={Styles.container}
-      onPress={() => navigation.navigate(screen)}
+      onPress={handlePress}
     >
       <Text style={Styles.text}>{title}</Text>
 
