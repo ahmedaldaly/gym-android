@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, View, TextInput, TouchableOpacity, Alert, ActivityIndicator } from "react-native"
+import { Text, View, TextInput, TouchableOpacity, Alert, ActivityIndicator, ScrollView } from "react-native"
 import { useForm, Controller } from "react-hook-form"
 import Icon from 'react-native-vector-icons/Ionicons'
 import Styles from './Styles'
@@ -41,7 +41,7 @@ export default function LoginScreen() {
   }
 
   return (
-    <View style={Styles.container}>
+    <ScrollView style={Styles.container}>
       {/* Logo */}
       <View style={Styles.logoContainer}>
         <Text style={Styles.logo}>logo</Text>
@@ -152,6 +152,6 @@ export default function LoginScreen() {
         </View>
       </View>
       <ErrorPopup visible={visible} message={error} onClose={() => setVisible(false)} />
-    </View>
+    </ScrollView>
   )
 }

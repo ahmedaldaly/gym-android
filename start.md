@@ -8,6 +8,16 @@ adb devices
 بص علشان تفتح devtool اضفك علي ctrl +m  open dev menu منجوا الفون الايمليتور
 npm install react-native-linear-gradient  لعمل شكل التاب الي في التصميم
 npm install react-native-svg دي الي بتعمل بيها تاثير النوتش القص يعني 
+
+========================
+تغير الاسم والايقون
+========================
+npm install react-native-rename -g 
+npx react-native-rename "FG Fitness" الاسم
+npx react-native-rename "FG Fitness" -b com.fgfitness.app  تغير الباندل اي دي 
+
+npm install -g react-native-make
+react-native set-icon --path ./icon.png
  
 ========================
 🔥 CORE (أساسي لأي مشروع)

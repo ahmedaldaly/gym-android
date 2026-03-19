@@ -5,6 +5,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { styles } from './Style';
 import { ProfileResponseType } from '../../../auth/Auth.type';
+import { scale, moderateScale } from 'react-native-size-matters';
 
 interface ProgressSectionProps {
   data?: ProfileResponseType['user'] | null;
@@ -17,8 +18,6 @@ interface CircularProgressProps {
   color: string;
   text: string;
 }
-
-/* ================= Circular Progress ================= */
 
 const CircularProgress = ({
   size,
@@ -34,30 +33,17 @@ const CircularProgress = ({
 
   const center = size / 2;
 
-  const dashCount = 20;
-  const dashArrays = Array.from({ length: dashCount }, (_, i) => {
-    return (i * 360) / dashCount;
-  });
-
   return (
     <View style={styles.progressWrapper}>
       <Svg width={size} height={size}>
-        {dashArrays.map((angle, i) => {
-          const rad = (angle * Math.PI) / 180;
-          const x1 = center + (radius - 5) * Math.cos(rad);
-          const y1 = center + (radius - 5) * Math.sin(rad);
-          const x2 = center + radius * Math.cos(rad);
-          const y2 = center + radius * Math.sin(rad);
-
-          return (
-            <Path
-              key={i}
-              d={`M ${x1} ${y1} L ${x2} ${y2}`}
-              stroke="#E5E7EB"
-              strokeWidth={2}
-            />
-          );
-        })}
+        <Circle
+          cx={center}
+          cy={center}
+          r={radius}
+          stroke="#E5E7EB"
+          strokeWidth={moderateScale(2)}
+          fill="transparent"
+        />
 
         <Circle
           cx={center}
@@ -73,43 +59,38 @@ const CircularProgress = ({
         />
       </Svg>
 
-      <Text style={styles.progressText}>{text}</Text>
+      <Text numberOfLines={1} style={styles.progressText}>
+        {text}
+      </Text>
     </View>
   );
 };
 
-/* ================= Progress Section ================= */
-
-export default function ProgressSection({
-  data,
-}: ProgressSectionProps) {
-
-  // 🛡️ حماية من الكراش
+export default function ProgressSection({ data }: ProgressSectionProps) {
   if (!data) return null;
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Your Progress</Text>
 
-      {/* Weight Card */}
       <View style={styles.weightCard}>
         <View style={styles.weightInfo}>
-          <Text style={styles.weightLabel}>
+          <Text numberOfLines={1} style={styles.weightLabel}>
             Current Weight
           </Text>
 
-          <Text style={styles.weightValue}>
+          <Text numberOfLines={1} style={styles.weightValue}>
             {data?.weight ?? 0} kg
           </Text>
 
-          <Text style={styles.goalLabel}>
+          <Text numberOfLines={1} style={styles.goalLabel}>
             Goal: {data?.goal ?? '-'}
           </Text>
         </View>
 
         <CircularProgress
-          size={100}
-          strokeWidth={12}
+          size={scale(90)}
+          strokeWidth={moderateScale(10)}
           progress={75}
           color="#60A5FA"
           text={`${data?.weight ?? 0} KG`}
@@ -119,28 +100,27 @@ export default function ProgressSection({
       {/* Bottom Row */}
       <View style={styles.row}>
         {/* Workouts */}
-        <View style={styles.smallCard}>
+        <View style={[styles.smallCard, styles.cardMargin]}>
           <View style={styles.cardHeader}>
             <View style={styles.cardTitleRow}>
               <MaterialCommunityIcons
                 name="weight-lifter"
-                size={20}
+                size={moderateScale(18)}
                 color="#4ADE80"
               />
-              <Text
-                style={[styles.cardTitle, { color: '#4ADE80' }]}>
+              <Text numberOfLines={1} style={[styles.cardTitle, { color: '#4ADE80' }]}>
                 Workouts
               </Text>
             </View>
 
-            <Text style={styles.cardSubtitle}>
+            <Text numberOfLines={1} style={styles.cardSubtitle}>
               This month
             </Text>
           </View>
 
           <CircularProgress
-            size={120}
-            strokeWidth={14}
+            size={scale(100)}
+            strokeWidth={moderateScale(12)}
             progress={80}
             color="#4ADE80"
             text="24 h"
@@ -153,23 +133,22 @@ export default function ProgressSection({
             <View style={styles.cardTitleRow}>
               <MaterialIcons
                 name="local-fire-department"
-                size={20}
+                size={moderateScale(18)}
                 color="#F87171"
               />
-              <Text
-                style={[styles.cardTitle, { color: '#F87171' }]}>
+              <Text numberOfLines={1} style={[styles.cardTitle, { color: '#F87171' }]}>
                 Calories
               </Text>
             </View>
 
-            <Text style={styles.cardSubtitle}>
+            <Text numberOfLines={1} style={styles.cardSubtitle}>
               This month
             </Text>
           </View>
 
           <CircularProgress
-            size={120}
-            strokeWidth={14}
+            size={scale(100)}
+            strokeWidth={moderateScale(12)}
             progress={70}
             color="#F87171"
             text="18 k"
