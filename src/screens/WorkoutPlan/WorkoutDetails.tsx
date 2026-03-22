@@ -1,11 +1,11 @@
-import { View, Text, TouchableOpacity, Image, ScrollView, SafeAreaView, StatusBar, ActivityIndicator } from 'react-native'
+import { View, Text, TouchableOpacity, Image, ScrollView, StatusBar, ActivityIndicator } from 'react-native'
 import React, { useState, useRef } from 'react'
 import { styles } from './Styles'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { WorkoutExerciseType } from './WorkoutPlan.type';
 import Video, { VideoRef } from 'react-native-video';
-
+import { SafeAreaView } from 'react-native-safe-area-context';
 type RootStackParamList = {
     WorkoutDetails: { exercise: WorkoutExerciseType };
 };

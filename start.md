@@ -18,7 +18,8 @@ npx react-native-rename "FG Fitness" -b com.fgfitness.app  تغير الباند
 
 npm install -g react-native-make
 react-native set-icon --path ./icon.png
- 
+npx --package react-native-make react-native-make set-icon --path ./logo.png
+ npx react-native-make set-icon --path ./logo.png
 ========================
 🔥 CORE (أساسي لأي مشروع)
 ========================

@@ -7,6 +7,7 @@ import { RootStackParamList } from '../../../../navigation/types';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import ProgressCircle from '../../../../components/ui/Circle';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import { moderateScale, scale } from 'react-native-size-matters';
 
 export default function OnboardingSecondScreen() {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
@@ -22,10 +23,10 @@ export default function OnboardingSecondScreen() {
         <TouchableOpacity
         style={styles.backContainer}
         onPress={() => navigation.navigate('main', { screen: 'first' } as any)}>
-    <SimpleLineIcons name="arrow-left" color="#5F5F5F" size={15} />
+    <SimpleLineIcons name="arrow-left" color="#5F5F5F" size={moderateScale(15)} />
         </TouchableOpacity>
         <TouchableOpacity>
-        <Text style={{ color: '#5F5F5F',fontSize:18 }} onPress={() => navigation.navigate('auth')}>Skip</Text>
+        <Text style={{ color: '#5F5F5F', fontSize: moderateScale(18) }} onPress={() => navigation.navigate('auth')}>Skip</Text>
         </TouchableOpacity>
       </View>
 
@@ -55,13 +56,13 @@ export default function OnboardingSecondScreen() {
         <ProgressCircle
           segments={3}
           currentIndex={currentIndex}
-          radius={40}
-          strokeWidth={4}
+          radius={scale(40)}
+          strokeWidth={scale(4)}
         />
 
         {/* arrow */}
         <View style={styles.arrowContainer}>
-          <AntDesign name="arrowright" size={26} color="#fff" />
+          <AntDesign name="arrowright" size={moderateScale(26)} color="#fff" />
         </View>
       </TouchableOpacity>
       </ScrollView>

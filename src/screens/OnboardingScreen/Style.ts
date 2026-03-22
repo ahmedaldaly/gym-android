@@ -1,63 +1,64 @@
 import { StyleSheet } from 'react-native';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingHorizontal: 15,
+        paddingHorizontal: scale(15),
     },
 
     skipContainer: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
-        padding: 10,
-        marginTop: 20,
+        padding: scale(10),
+        marginTop: verticalScale(20),
         color: '#5F5F5F',
     },
 
     imageContainer: {
         alignItems: 'center',
-        paddingVertical: 30,
+        paddingVertical: verticalScale(30),
     },
 
     image: {
-        width: 375,
-        height: 450,
+        width: scale(340),
+        height: verticalScale(380),
         resizeMode: 'contain',
     },
 
     textContainer: {
-        paddingVertical: 30,
-        paddingHorizontal: 15,
+        paddingVertical: verticalScale(20),
+        paddingHorizontal: scale(15),
     },
 
     title: {
-        fontSize: 22,
+        fontSize: moderateScale(22),
         fontWeight: '600',
-        marginBottom: 10,
+        marginBottom: verticalScale(10),
         color: '#13042D',
     },
 
     subtitle: {
-        fontSize: 16,
+        fontSize: moderateScale(16),
         color: '#79858F',
     },
 
     /* 🔥 الزر الجديد */
     arrowWrapper: {
-        width: 90,
-        height: 90,
+        width: scale(90),
+        height: scale(90),
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'flex-end',
-        marginRight: 20,
-        marginBottom: 20,
+        marginRight: scale(20),
+        marginBottom: verticalScale(20),
     },
 
     arrowContainer: {
         position: 'absolute',
-        width: 60,
-        height: 60,
-        borderRadius: 30,
+        width: scale(60),
+        height: scale(60),
+        borderRadius: scale(30),
         backgroundColor: '#1E3A8A',
         alignItems: 'center',
         justifyContent: 'center',

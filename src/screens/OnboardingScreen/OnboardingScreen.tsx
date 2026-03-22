@@ -6,6 +6,7 @@ import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../navigation/types';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import ProgressCircle from '../../components/ui/Circle';
+import { moderateScale, scale } from 'react-native-size-matters';
 
 export default function OnboardingScreen() {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
@@ -18,7 +19,7 @@ export default function OnboardingScreen() {
       <ScrollView>
       {/* Skip */}
       <View style={styles.skipContainer}>
-        <Text style={{ color: '#5F5F5F' ,fontSize:18 }} onPress={() => navigation.navigate('auth')}>Skip</Text>
+        <Text style={{ color: '#5F5F5F', fontSize: moderateScale(18) }} onPress={() => navigation.navigate('auth')}>Skip</Text>
       </View>
 
       {/* Image */}
@@ -47,13 +48,13 @@ export default function OnboardingScreen() {
         <ProgressCircle
           segments={3}
           currentIndex={currentIndex}
-          radius={40}
-          strokeWidth={4}
+          radius={scale(40)}
+          strokeWidth={scale(4)}
         />
 
         {/* arrow */}
         <View style={styles.arrowContainer}>
-          <AntDesign name="arrowright" size={26} color="#fff" />
+          <AntDesign name="arrowright" size={moderateScale(26)} color="#fff" />
         </View>
       </TouchableOpacity>
       </ScrollView>
